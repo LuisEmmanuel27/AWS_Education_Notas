@@ -1,0 +1,22 @@
+¿Qué es Amazon Lambda? ¿Qué hace? ¿Qué problema resuelve? ¿Qué beneficios tiene? Estas son algunas de las preguntas que quizás te hayas hecho al escuchar hablar de este servicio de AWS. En este post, te explicaremos en qué consiste Amazon Lambda, cómo funciona, para qué sirve y qué ventajas ofrece a tu empresa.
+
+Amazon Lambda es un servicio de computación sin servidor (serverless) que te permite ejecutar código sin tener que aprovisionar ni administrar servidores. Lambda ejecuta el código en una infraestructura de computación de alta disponibilidad y realiza todas las tareas de administración de los recursos de computación, incluido el mantenimiento del servidor y del sistema operativo, el aprovisionamiento de capacidad y el escalado automático, así como las funciones de registro. Con Lambda, lo único que tienes que hacer es suministrar el código en uno de los tiempos de ejecución de lenguaje compatibles con Lambda. Puedes organizar tu código en funciones de Lambda, que son unidades lógicas que realizan una tarea específica. El servicio de Lambda ejecuta la función solo cuando es necesario y escala automáticamente según la demanda. Solo pagas por el tiempo de computación que consumes; no se aplican cargos cuando el código no se está ejecutando.
+
+Lambda es un servicio ideal para situaciones de aplicaciones que necesitan escalar rápidamente y reducirse a cero cuando no hay demanda. Por ejemplo, puedes utilizar Lambda para los siguientes procesos:
+
+- Procesamiento de archivos: utiliza Amazon Simple Storage Service (Amazon S3) para iniciar el procesamiento de datos de Lambda en tiempo real después de la carga.
+- Procesamiento de flujos: utiliza Lambda y Amazon Kinesis para procesar datos de streaming en tiempo real en el seguimiento de la actividad de las aplicaciones, el procesamiento de pedidos de transacciones, el análisis de secuencias de clics, la limpieza de datos, el filtrado de registros, la indexación, el análisis de las redes sociales, la telemetría de datos de dispositivos de Internet de las cosas (IoT) y la medición de valores.
+- Aplicaciones web: combina Lambda con otros servicios de AWS para crear aplicaciones web potentes que escalen automáticamente y se ejecuten en una configuración de alta disponibilidad en varios centros de datos.
+- Backends de IoT: crea backends sin servidor con Lambda para gestionar las solicitudes de API web, dispositivos móviles, IoT y terceros.
+- Backends móviles: crea backends con Lambda y Amazon API Gateway para autenticar y procesar las solicitudes de API. Utiliza AWS Amplify para integrar fácilmente a tus frontends de iOS, Android, Web y React Native.
+
+Cuando utilizas Lambda, solo tienes que preocuparte por el código. Lambda administra la flota de computación, que ofrece una combinación equilibrada de memoria, CPU, red y otros recursos para ejecutar tu código. Como Lambda administra estos recursos, no puedes iniciar sesión en instancias de computación ni personalizar el sistema operativo o los tiempos de ejecución proporcionados. Lambda realiza actividades operacionales y administrativas en tu nombre, incluida la administración de la capacidad, la supervisión y el registro de las funciones.
+
+Algunos beneficios que ofrece Amazon Lambda son:
+
+- Ahorro en costes: solo pagas por lo que usas. No tienes que pagar por servidores ociosos o infraestructura innecesaria.
+- Escalabilidad: Lambda se adapta automáticamente al volumen y la frecuencia de los eventos que activan tus funciones. No tienes que preocuparte por el escalado manual o el balanceo de carga.
+- Flexibilidad: puedes elegir entre varios lenguajes compatibles con Lambda (Node.js, Python, Ruby, Java, Go o .NET), o utilizar tu propio tiempo de ejecución personalizado. También puedes integrar Lambda con otros servicios y herramientas sin servidor como Amazon S3, Amazon DynamoDB, Amazon SQS o AWS Step Functions.
+- Seguridad: puedes utilizar AWS Identity and Access Management (IAM) para controlar los permisos y las políticas que se aplican a tus funciones. También puedes utilizar AWS Key Management Service (KMS) para cifrar los datos sensibles que almacenas o transmites con tus funciones.
+
+En conclusión, Amazon Lambda es un servicio que te permite crear aplicaciones sin servidor con facilidad, rapidez y eficiencia. Con Lambda, puedes centrarte en la lógica de tu negocio y dejar que AWS se encargue de la infraestructura. Si quieres saber más sobre Amazon Lambda o cómo implementarlo en tu empresa, contacta con nosotros y te asesoraremos sin compromiso.

@@ -1,0 +1,169 @@
+
+# Introducción a Amazon S3
+
+## Flujo de trabajo básico de AWS S3
+
+- AWS S3 es un servicio de almacenamiento de objetos en la nube que permite guardar y recuperar datos desde cualquier lugar y en cualquier momento.
+- El flujo de trabajo básico de AWS S3 consiste en los siguientes pasos:
+  - Crear un bucket: Un bucket es un contenedor lógico que almacena los objetos. Cada bucket tiene un nombre único y una región asociada.
+  - Subir objetos: Los objetos son los archivos o datos que se guardan en los buckets. Cada objeto tiene una clave (nombre), un valor (contenido) y metadatos opcionales.
+  - Descargar objetos: Se puede acceder a los objetos mediante una URL que incluye el nombre del bucket, la clave del objeto y un token de acceso opcional.
+  - Administrar permisos: Se puede controlar quién puede acceder, leer, escribir o eliminar los objetos y los buckets mediante políticas de acceso, listas de control de acceso (ACL) y firmas de URL.
+  - Configurar opciones adicionales: Se puede habilitar funciones como el versionado, el cifrado, la replicación, el ciclo de vida y las notificaciones para optimizar el uso y la seguridad de los datos almacenados en AWS S3.
+
+## Almacenamiento a nivel de objeto
+
+- AWS S3 es un servicio de almacenamiento en la nube que permite guardar y recuperar datos en forma de objetos.
+- Un objeto es una unidad lógica de datos que consta de un identificador único, un contenido binario y metadatos opcionales.
+- Los objetos se almacenan en contenedores llamados buckets, que se pueden configurar con diferentes opciones de seguridad, acceso, replicación y ciclo de vida.
+- AWS S3 ofrece una alta disponibilidad, durabilidad, escalabilidad y rendimiento para los objetos almacenados, así como una variedad de características adicionales como cifrado, versionado, etiquetado, análisis y más.
+
+## Almacenamiento activo y de archivo
+
+Con AWS S3, puede almacenar sus datos en distintas clases de almacenamiento según sus necesidades de rendimiento, durabilidad y costo. Por ejemplo, puede usar S3 Standard para almacenar datos que requieren acceso frecuente y rápido, o S3 Glacier para almacenar datos que se acceden raramente y que necesitan un bajo costo de almacenamiento. AWS S3 también le permite administrar sus datos con políticas de ciclo de vida, cifrado, control de acceso y otras características de seguridad.
+
+## Clases de almacenamiento de AWS S3
+
+`
+Las clases de almacenamiento de Amazon S3 son opciones que permiten optimizar el rendimiento, la durabilidad, la disponibilidad y el costo de los datos que se almacenan en S3. Cada clase de almacenamiento tiene características diferentes que se adaptan a diferentes casos de uso y necesidades de los clientes. A continuación se describen algunas de las clases de almacenamiento más comunes y sus ventajas:
+
+- Standard: Es la clase de almacenamiento por defecto, que ofrece un alto nivel de rendimiento, durabilidad y disponibilidad. Es adecuada para datos que se acceden con frecuencia o que requieren una baja latencia, como aplicaciones web, contenido multimedia, análisis o copias de seguridad.
+- Standard - Acceso poco frecuente: Es una clase de almacenamiento que ofrece un costo menor que Standard, pero con una tarifa adicional por cada acceso. Es adecuada para datos que se acceden con poca frecuencia, pero que necesitan una recuperación rápida cuando se solicitan, como registros históricos, datos de referencia o copias de seguridad a largo plazo.
+- S3 One Zone - Acceso poco frecuente: Es una variante de la clase anterior, que almacena los datos en una sola zona de disponibilidad en lugar de varias. Esto reduce el costo aún más, pero implica un mayor riesgo de pérdida de datos en caso de una falla en la zona. Es adecuada para datos que se acceden con poca frecuencia y que son fácilmente reproducibles o no críticos, como imágenes generadas por algoritmos, miniaturas o copias secundarias.
+- S3 Intelligent-Tiering: Es una clase de almacenamiento que automáticamente mueve los datos entre dos niveles: uno para datos accedidos con frecuencia y otro para datos accedidos con poca frecuencia. Esto permite ahorrar costos sin tener que clasificar manualmente los datos o predecir su patrón de acceso. Es adecuada para datos con un acceso impredecible o que cambia con el tiempo, como datos de usuarios, aprendizaje automático o IoT.
+- S3 Glacier: Es una clase de almacenamiento que ofrece un costo muy bajo, pero con una latencia alta para la recuperación de los datos. Es adecuada para datos que se acceden muy raramente o que solo se necesitan para cumplir con requisitos legales o regulatorios, como archivos históricos, documentos financieros o evidencias legales.
+- S3 Glacier Deep Archive: Es la clase de almacenamiento más barata de S3, pero también la más lenta. Puede tardar hasta 12 horas en recuperar los datos. Es adecuada para datos que se acceden extremadamente raramente o que solo se necesitan en caso de emergencia, como registros médicos, datos científicos o culturales.
+
+Estas son solo algunas de las clases de almacenamiento que ofrece Amazon S3. Existen otras opciones más específicas o personalizadas que se pueden consultar en la documentación oficial. Lo importante es elegir la clase de almacenamiento que mejor se adapte a las características y necesidades de cada tipo de dato y caso de uso.
+
+## Casos prácticos de las clases de almacenamiento de AWS S3
+
+### S3 Standard
+- Sitios web que solamente incluyen contenido estático
+- Almacenamiento para archivos de registro a los que con frecuencia se accede, se revisan o se ejecuta un análisis con ellos
+- Almacenamiento para instaladores de aplicaciones, archivos de configuración y para el aprovisionamiento y la implementación de herramientas
+
+### S3 Standard-IA
+
+AWS S3 Standard-IA es una clase de almacenamiento diseñada para datos que se acceden con poca frecuencia, pero que requieren una alta disponibilidad y durabilidad. Algunos casos prácticos de uso para AWS S3 Standard-IA son:
+
+- Respaldo de sus sistemas: Puede utilizar AWS S3 Standard-IA para almacenar copias de seguridad de sus datos críticos, como bases de datos, archivos o imágenes. De esta forma, puede recuperar sus datos en caso de una emergencia o un desastre, sin pagar por un almacenamiento que no necesita acceder con frecuencia.
+- Archivo de documentos: Puede utilizar AWS S3 Standard-IA para archivar documentos que no necesita consultar a menudo, pero que debe conservar por razones legales o regulatorias. Por ejemplo, puede almacenar facturas, contratos, registros médicos o historiales académicos en AWS S3 Standard-IA y acceder a ellos cuando sea necesario.
+- Análisis de datos: Puede utilizar AWS S3 Standard-IA para almacenar datos que desea analizar ocasionalmente, pero que no requieren un acceso inmediato. Por ejemplo, puede almacenar registros de eventos, registros de auditoría, registros de transacciones o datos de sensores en AWS S3 Standard-IA y procesarlos con servicios como Amazon Athena, Amazon EMR o Amazon Redshift Spectrum cuando lo necesite.
+
+### S3 One Zone-IA
+
+AWS S3 One Zone-IA es una clase de almacenamiento de bajo costo diseñada para datos que no requieren alta disponibilidad. Algunos casos prácticos de uso para esta clase son:
+
+- Archivos fácilmente reemplazables: si los datos se pueden regenerar o restaurar desde otra fuente en caso de pérdida, se pueden almacenar en One Zone-IA para ahorrar costos. Por ejemplo, imágenes generadas por algoritmos, copias de seguridad secundarias o archivos temporales.
+- Archivos de acceso infrecuente: si los datos se acceden con poca frecuencia, pero se necesita un rendimiento rápido cuando se acceden, se pueden almacenar en One Zone-IA para obtener un menor costo por GB que en S3 Standard. Por ejemplo, archivos de registro históricos, datos de análisis o contenido multimedia antiguo.
+- Archivos replicados en varias zonas: si los datos se replican en varias zonas de disponibilidad o regiones, se puede usar One Zone-IA para una de las réplicas y reducir el costo total de almacenamiento. Por ejemplo, datos distribuidos globalmente, sitios web estáticos o aplicaciones con tolerancia a fallos.
+
+### S3 Glacier
+
+Algunos casos prácticos de uso para AWS S3 Glacier son:
+
+- Archivo de activos de medios digitales para archivos multimedia grandes. Por ejemplo, una empresa de producción de video puede almacenar sus videos originales en S3 Glacier para reducir los costos de almacenamiento y preservar la calidad de los archivos.
+- Almacenamiento a largo plazo de datos históricos o regulatorios. Por ejemplo, una institución financiera puede guardar sus registros contables o transaccionales en S3 Glacier para cumplir con las normas de retención de datos y facilitar el acceso a la información cuando sea necesario.
+- Copia de seguridad y recuperación ante desastres de datos críticos. Por ejemplo, una organización sanitaria puede proteger sus datos médicos o de pacientes en S3 Glacier para asegurar su disponibilidad en caso de una emergencia o un incidente de seguridad.
+
+### S3 Glacier Deep Archive
+
+AWS S3 Glacier Deep Archive es un servicio de almacenamiento de objetos de bajo costo y alta durabilidad que permite archivar datos que se acceden con poca frecuencia y que se conservan durante largos períodos de tiempo. Algunos casos prácticos de uso para este servicio son:
+
+- Bibliotecas de datos a largo plazo: se puede utilizar AWS S3 Glacier Deep Archive para almacenar grandes volúmenes de datos históricos, como registros médicos, documentos legales, imágenes digitales, vídeos o registros financieros, que se requieren para fines de cumplimiento, auditoría o investigación.
+- Copias de seguridad y recuperación ante desastres: se puede utilizar AWS S3 Glacier Deep Archive para crear copias de seguridad de los datos críticos que se almacenan en otros servicios de AWS o en sistemas locales, y recuperarlos en caso de pérdida, corrupción o desastre. El servicio ofrece una alta disponibilidad y durabilidad, así como opciones de cifrado y control de acceso.
+- Análisis de datos: se puede utilizar AWS S3 Glacier Deep Archive para almacenar datos que se pueden analizar con herramientas como Amazon Athena, Amazon Redshift Spectrum o Amazon EMR. El servicio permite acceder a los datos en cuestión de horas y ofrece una integración sencilla con otros servicios de AWS.
+
+### S3 Intelligent-Tiering
+
+AWS S3 Intelligent-Tiering es un servicio que permite optimizar el costo y el rendimiento de los datos almacenados en S3, al moverlos automáticamente entre cuatro niveles de acceso según su frecuencia de uso. Algunos casos prácticos de uso para este servicio son:
+
+- Cargas de trabajo impredecibles: Si no se sabe con antelación cuándo se van a necesitar los datos, AWS S3 Intelligent-Tiering los mantiene en el nivel más adecuado para su acceso rápido y económico.
+- Análisis de datos: Si se realizan análisis periódicos o esporádicos sobre los datos, AWS S3 Intelligent-Tiering los traslada al nivel de acceso frecuente cuando se requieren, y al nivel de acceso poco frecuente cuando no se usan.
+- Archivo y cumplimiento: Si se tienen datos que deben conservarse por motivos legales o regulatorios, pero que rara vez se consultan, AWS S3 Intelligent-Tiering los almacena en el nivel de acceso profundo o en el nivel de acceso glacial, que ofrecen el menor costo por GB.
+
+## Creación de un Bucket
+
+- Debemos usar nombres unicos, pueden ir de los 3 a los 63 caracterés, solo minuscúlas, pueden tener puntos, números y guiones.
+- Por default el bucket se crea con un control de acceso privado, donde solo nosotros podemos acceder al mismo (lista de control de acceso - ACL). Las ACL son las listas que usa para definir quien puede comunicarse con que.
+- Configuración predeterminada = ACL desactivada
+- Podemos modificar las politicas para permitir acceso público, como sitios web estaticos, pero claro debemos saber que hacer público y que no.
+- Podemos hacer uso de "versiones" con los bucket, esto nos permite tener copias de respaldo por llamarlo de una manera. Por default viene desactivada esta opción, en caso de necesitarla debemos activarla manualmente.
+- Los bucket pueden tener etiquetas o tags, estas con un key y un value, el key debe ser único, mientras que el value es opcional y no hace falta que sea único.
+- La carga de objetos es hasta cierto punto ilimitada
+	- El limite de los objetos es de 5TB
+	- El limite de carga es de 160GB desde la consola.
+- Cuando tenemos objetos que sobrepasan los 100MB podriamos considerar la carga por partes, AWS divide el archivo en multiples partes de 100MB y las carga de manera independiente, si alguna falla, solo basta con reintentar la carga de dicha parte, no afectara a las demás y al final AWS volvera a armar el objeto cuando tenga todas las partes ya cargadas.
+- Se pueden copiar los bucket y cambiar los nombres y los metadatos de las copias. Así como podemos copiar la url de los mismos o descargar archivos de estos.
+- Cuando se eliminan buckets por cuestiones de seguridad o eliminaciones accidentales se requiere de un MFA (Eliminación con autenticación multifactor), siendo estas:
+	1. Nombre de usuario y contraseña
+	2. número serial que incluso puede estar en un dispositivo fisico osea una llave de seguridad
+	
+### Funciones adicionales: Reglas del ciclo de vida
+
+1. Las acciones de transición definen el momento en que los objetos pasan de una clase de almacenamiento a otra.
+2. Las acciones de vencimiento definen el momento en el que vencen los objetos y se eliminan
+
+Amazon S3 - `mydoc.pdf` -> 30 días -> Amazon S3 Standard-IA - `mydoc.pdf` -> 60 días -> Amazon S3 Glacier - `mydoc.pdf` -> 365 días -> **Eliminar**
+
+### Funciones adicionales: Reglas de replicación
+
+Las reglas de replicación de AWS S3 permiten copiar objetos automáticamente entre buckets de diferentes regiones o dentro de la misma región. Esto puede ser útil para mejorar el rendimiento, la disponibilidad, el cumplimiento o la recuperación ante desastres de los datos almacenados en S3. Para configurar una regla de replicación, se necesita habilitar la versión de los objetos en el bucket de origen y el de destino, especificar un rol de IAM que tenga permisos para replicar los objetos, y definir las condiciones y opciones de la replicación, como el prefijo, la etiqueta o el tipo de almacenamiento de los objetos a replicar.
+
+#### Replicación entre regiones y en la misma región
+
+La replicación entre regiones puede ser útil para mejorar el rendimiento, la disponibilidad y la durabilidad de los datos, así como para cumplir con los requisitos normativos o de recuperación ante desastres. La replicación en la misma región puede ser útil para simplificar la administración de los datos, reducir los costos de transferencia y facilitar el procesamiento de los datos en diferentes zonas de disponibilidad.
+
+Las diferencias entre ambas modalidades de replicación son las siguientes:
+
+- La replicación entre regiones requiere habilitar la versión de los objetos en el bucket de origen y el bucket de destino, mientras que la replicación en la misma región solo requiere habilitar la versión en el bucket de origen.
+- La replicación entre regiones puede replicar los objetos a una o varias regiones diferentes, mientras que la replicación en la misma región solo puede replicar los objetos a un bucket en la misma región.
+- La replicación entre regiones puede aplicar una política de ciclo de vida diferente a los objetos replicados, mientras que la replicación en la misma región aplica la misma política de ciclo de vida a los objetos replicados y originales.
+- La replicación entre regiones puede cifrar los objetos replicados con una clave diferente a la del objeto original, mientras que la replicación en la misma región mantiene el mismo método y clave de cifrado para los objetos replicados y originales.
+
+### Seguridad de los buckets
+
+- **Cliente**: Responsable de la seguridad `EN` la nube
+
+	- Datos del cliente
+	- Plataforma, aplicaciones, administración de identidades y acceso
+	- Configuración de Firewall, la red y el SO
+	- Cifrado de datos del lado del cliente y autenticación de integridad de los datos
+	- Cifrado del lado del servidor (sistema de archivos o datos)
+	- Protección del tráfico de red (cifrado, integridad e identidad)
+
+- **AWS**: Responsable de la seguridad `DE` la nube
+
+	- Software
+	- Cómputo
+	- Almacenamiento
+	- Bases de datos
+	- Redes
+	- Infraestructura global de AWS y hardware
+	- Regiones
+	- Zonas de disponibilidad
+	- Ubicaciones perimetrales
+	
+#### Cifrado
+
+La seguridad de los buckets de AWS S3 es un aspecto fundamental para proteger los datos almacenados en la nube. Una de las medidas más importantes es el cifrado, que consiste en transformar los datos en un formato ilegible para evitar accesos no autorizados. AWS S3 ofrece dos tipos de cifrado: el cifrado del cliente y el cifrado del lado del servidor.
+
+El cifrado del cliente se realiza antes de enviar los datos a AWS S3, y el usuario es responsable de gestionar las claves de cifrado. El cifrado del lado del servidor se realiza en AWS S3, y AWS es responsable de gestionar las claves de cifrado. Ambos tipos de cifrado tienen ventajas e inconvenientes, y el usuario debe elegir el más adecuado según sus necesidades y preferencias.
+
+### Moviendo grandes cantidades de datos
+
+A veces puede ser necesario transferir grandes cantidades de datos desde o hacia S3, lo que puede resultar costoso y lento. Para facilitar este proceso, AWS ofrece varias soluciones de aceleración de transferencias de S3, que se adaptan a diferentes casos de uso y necesidades.
+
+- Una de estas soluciones es la aceleración de transferencias de S3, que consiste en utilizar una red optimizada de AWS para reducir la latencia y aumentar la velocidad de las transferencias entre el cliente y el punto de presencia (POP) más cercano de AWS. Esta opción se puede habilitar fácilmente desde la consola de S3 o mediante la API, y se aplica a todos los objetos almacenados en el bucket. La aceleración de transferencias de S3 tiene un costo adicional por GB transferido, pero puede ahorrar tiempo y dinero en escenarios donde se requiere una alta velocidad de transferencia.
+
+- Otra solución es AWS Snowcone, que es un dispositivo portátil y resistente que permite transportar hasta 8 TB de datos desde o hacia S3. AWS Snowcone se puede solicitar desde la consola de AWS Snow Family o mediante la API, y se envía al cliente con un cable USB-C y un adaptador de corriente. El cliente puede conectar el dispositivo a su red local y copiar los datos usando el agente de AWS Snowcone o herramientas como AWS CLI o AWS SDK. Una vez que el dispositivo está listo, se devuelve a AWS, donde se carga o descarga los datos en S3. AWS Snowcone es ideal para casos de uso donde se necesita mover datos desde o hacia ubicaciones remotas o con conectividad limitada.
+
+- AWS Snowball es una solución similar a AWS Snowcone, pero con mayor capacidad y funcionalidad. AWS Snowball es un dispositivo robusto y seguro que permite transportar hasta 80 TB de datos desde o hacia S3. Además, AWS Snowball puede ejecutar aplicaciones compatibles con EC2 usando AWS Snowball Edge, que ofrece hasta 40 vCPU y 80 GB de memoria. AWS Snowball se puede solicitar desde la consola de AWS Snow Family o mediante la API, y se envía al cliente con un cable de red y un adaptador de corriente. El cliente puede conectar el dispositivo a su red local y copiar los datos usando el agente de AWS Snowball o herramientas como AWS CLI o AWS SDK. También puede ejecutar aplicaciones en el dispositivo usando la consola web de AWS Snowball Edge o la API. Una vez que el dispositivo está listo, se devuelve a AWS, donde se carga o descarga los datos en S3. AWS Snowball es ideal para casos de uso donde se necesita mover grandes cantidades de datos desde o hacia ubicaciones con conectividad limitada o alto costo.
+
+- AWS Snowmobile es la solución más grande y potente de AWS para acelerar las transferencias de S3. AWS Snowmobile es un camión con un contenedor que alberga un sistema de almacenamiento capaz de transportar hasta 100 PB de datos desde o hacia S3. AWS Snowmobile se puede solicitar desde la consola de AWS Snow Family o mediante la API, y se envía al cliente con un equipo técnico especializado. El cliente debe proporcionar una ubicación adecuada para estacionar el camión, así como una conexión eléctrica y una conexión de red óptica. El equipo técnico se encarga de conectar el sistema de almacenamiento a la red del cliente y supervisar el proceso de copia de los datos usando herramientas como AWS CLI o AWS SDK. Una vez que el sistema está listo, se desconecta del cliente y se transporta a AWS, donde se carga o descarga los datos en S3. AWS Snowmobile es ideal para casos de uso donde se necesita mover cantidades masivas de datos desde o hacia ubicaciones con conectividad muy limitada o muy costosa.
+
+## Servicios de almacenamiento de AWS adicionales
+
+Dondé revisaremos lo que es almacenamiento en bloque de Amazon `EBS` y almacenamiento de archivos de Amazon `EFS`.
+

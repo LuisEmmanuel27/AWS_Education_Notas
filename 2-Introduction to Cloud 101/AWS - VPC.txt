@@ -1,0 +1,47 @@
+Amazon VPC es un servicio de AWS que permite lanzar recursos en una red virtual aislada de forma lógica que usted defina. Con Amazon VPC, puede controlar todos los aspectos del entorno de red virtual, como la selección de su propio rango de direcciones IP, la creación de subredes y la configuración de tablas de enrutamiento y gateways.
+
+Amazon VPC le ofrece los beneficios de utilizar la infraestructura escalable y segura de AWS, pero con la flexibilidad de personalizar su red según sus necesidades. Algunos de los beneficios de Amazon VPC son:
+
+- Seguridad: puede definir grupos de seguridad y listas de control de acceso para filtrar el tráfico entrante y saliente de sus recursos. También puede usar puntos de conexión de VPC para acceder a servicios de AWS sin pasar por Internet, lo que reduce el riesgo de exposición.
+- Conectividad: puede conectar su VPC a otras redes, como su red local, otras VPC o Internet, mediante diferentes opciones como VPN, Direct Connect o Transit Gateway. También puede usar el emparejamiento de VPC para comunicar recursos entre diferentes VPC dentro de la misma región o entre regiones.
+- Flexibilidad: puede elegir el tamaño y el número de subredes que desea crear dentro de su VPC, así como las zonas de disponibilidad donde desea ubicarlas. También puede asignar direcciones IP públicas o privadas a sus recursos, o usar sus propias direcciones IP mediante el servicio Bring Your Own IP (BYOIP).
+- Monitoreo: puede capturar información sobre el tráfico IP entrante y saliente de sus interfaces de red mediante los logs de flujo de VPC. También puede usar la replicación de tráfico para copiar el tráfico desde las interfaces de red y enviarlo a dispositivos de seguridad y monitoreo para una inspección profunda.
+
+Amazon VPC es un servicio fundamental para alojar aplicaciones en la nube, ya que le permite crear redes virtuales con el nivel de aislamiento, seguridad y conectividad que requiera. Puede usar Amazon VPC para lanzar aplicaciones web sencillas o complejas, con varios niveles y servicios integrados. También puede usar Amazon VPC para crear conexiones híbridas entre su nube y sus instalaciones, aprovechando las ventajas de ambos entornos.
+
+// Pregunta a copilot: 
+estaba revisando y menciona algo de que si creamos un VCL desde 0, creará automaticamente una tabla de enrutamiento, una ACL de red y un grupo de seguridad.
+
+puedes explicar un poco más ese punto?
+
+// Respuesta de copilot:
+
+Sí, cuando creas una VPC desde cero, Amazon crea automáticamente una serie de componentes para ti. Aquí te explico un poco más sobre cada uno:
+
+1. **Tabla de enrutamiento (Routing Table)**¹²: Una tabla de enrutamiento contiene un conjunto de reglas, llamadas rutas, que determinan a dónde se dirige el tráfico de red desde tu subred o gateway¹. Cuando creas una VPC, AWS crea una tabla de enrutamiento llamada la tabla de enrutamiento principal³. Esta tabla controla el enrutamiento para todas las subredes que no están explícitamente asociadas con ninguna otra tabla de enrutamiento⁴.
+
+2. **ACL de red (Network ACL)**⁶: Una lista de control de acceso (ACL) de red permite o deniega el tráfico entrante o saliente específico a nivel de subred⁶. Puedes usar la ACL de red predeterminada para tu VPC, o puedes crear una ACL de red personalizada para tu VPC con reglas similares a las reglas para tus grupos de seguridad con el fin de agregar una capa adicional de seguridad a tu VPC⁶.
+
+3. **Grupo de seguridad (Security Group)**¹¹: Un grupo de seguridad actúa como un firewall que controla el tráfico permitido hacia y desde los recursos en tu VPC¹¹. Puedes elegir los puertos y protocolos para permitir el tráfico entrante y saliente. Para cada grupo de seguridad, agregas conjuntos separados de reglas para el tráfico entrante y saliente¹¹.
+
+Espero que esto aclare tus dudas sobre estos componentes. Si tienes más preguntas, no dudes en preguntar. 😊
+
+Origen: Conversación con Bing, 28/10/2023
+(1) Configure route tables - Amazon Virtual Private Cloud. https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html.
+(2) Example routing options - Amazon Virtual Private Cloud. https://docs.aws.amazon.com/vpc/latest/userguide/route-table-options.html.
+(3) Learn About Amazon VPC Routing Unit | Salesforce Trailhead. https://trailhead.salesforce.com/content/learn/modules/aws-networking/learn-about-amazon-vpc-routing.
+(4) AWS — VPC Route Table Overview - Medium. https://medium.com/awesome-cloud/aws-vpc-route-table-overview-intro-getting-started-guide-5b5d65ec875f.
+(5) Control traffic to subnets using network ACLs - Amazon Virtual Private .... https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html.
+(6) Security groups - Amazon Virtual Private Cloud. https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html.
+(7) AWS VPC Peering and route tables - Stack Overflow. https://stackoverflow.com/questions/43452208/aws-vpc-peering-and-route-tables.
+(8) Controlar el tráfico hacia las subredes utilizando las ACL de red. https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html.
+(9) Amazon VPC Network ACL in AWS – KTEXPERTS. https://www.ktexperts.com/amazon-vpc-network-acl-in-aws-amazon-web-services/.
+(10) How to set up network ACL on Amazon Virtual Private Cloud?. https://stackoverflow.com/questions/10596456/how-to-set-up-network-acl-on-amazon-virtual-private-cloud.
+(11) Configure security groups and ACLs for Amazon VPC interface endpoint .... https://repost.aws/knowledge-center/security-network-acl-vpc-endpoint.
+(12) Grupos de seguridad - Amazon Virtual Private Cloud. https://docs.aws.amazon.com/es_es/vpc/latest/userguide/security-groups.html.
+(13) Amazon VPC – Security in Amazon Virtual Private Cloud. https://www.geeksforgeeks.org/amazon-vpc-security-in-amazon-virtual-private-cloud/.
+(14) Controlling access with security groups - Amazon Aurora. https://docs.amazonaws.cn/en_us/AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.html.
+(15) undefined. https://console.aws.amazon.com/vpc/.
+
+Para obtener más información sobre Amazon VPC, puede consultar la documentación oficial, el blog oficial o los casos de éxito  de clientes que usan este servicio.
+

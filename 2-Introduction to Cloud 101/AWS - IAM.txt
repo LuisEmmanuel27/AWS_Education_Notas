@@ -1,0 +1,64 @@
+AWS IAM: Gestión de identidades y acceso
+
+Si estás utilizando los servicios en la nube de AWS, es fundamental que sepas cómo gestionar las identidades y permisos de acceso de tus usuarios y recursos. AWS Identity and Access Management (IAM) es un servicio que te ayuda a lograrlo. IAM te permite crear y gestionar usuarios, grupos, roles y políticas que controlan quién puede acceder a qué en tu cuenta de AWS.
+
+En esta publicación del blog, explicaré los conceptos básicos y las características de IAM, y te mostraré cómo utilizarlos para asegurar tu entorno de AWS. También compartiré algunas mejores prácticas y consejos para utilizar IAM de manera efectiva.
+
+¿Qué es IAM?
+
+IAM es un servicio web que te permite gestionar las identidades y los permisos de acceso de tus usuarios y recursos en AWS. Puedes utilizar IAM para:
+
+Crear y gestionar usuarios, grupos, roles y políticas.
+Asignar permisos a usuarios, grupos, roles y políticas.
+Controlar el acceso a servicios y recursos de AWS.
+Supervisar y auditar la actividad de los usuarios y el acceso a recursos.
+Habilitar la autenticación de múltiples factores (MFA) para una seguridad adicional.
+Integrarse con otros servicios de AWS y proveedores de identidad externos.
+¿Cómo funciona IAM?
+
+IAM funciona mediante los siguientes componentes:
+
+Usuarios: Una entidad que representa a una persona o aplicación que interactúa con AWS. Un usuario tiene un nombre, una contraseña y opcionalmente un par de claves de acceso.
+Grupos: Una colección de usuarios que comparten los mismos permisos. Un grupo tiene un nombre y una política adjunta.
+Roles: Una entidad que representa un conjunto de permisos que puede ser asumido por un usuario o un servicio. Un rol tiene un nombre, una política de confianza y una política de permisos.
+Políticas: Un documento que define los permisos para un usuario, grupo, rol o recurso. Una política tiene un formato JSON y consta de una o varias declaraciones.
+Recursos: Una entidad que representa un servicio o característica de AWS que puede ser accedido o modificado. Un recurso tiene un Nombre de Recurso de Amazon (ARN) que lo identifica de manera única.
+IAM utiliza estos componentes para evaluar las solicitudes de acceso de usuarios o servicios. Cuando un usuario o un servicio realiza una llamada de API a un servicio de AWS, IAM verifica lo siguiente:
+
+Autenticación: IAM verifica la identidad del usuario o servicio comprobando las credenciales (contraseña, clave de acceso, código MFA, etc.) proporcionadas en la solicitud.
+Autorización: IAM determina si el usuario o servicio tiene permiso para realizar la acción solicitada en el recurso solicitado, revisando las políticas adjuntas al usuario, grupo, rol o recurso.
+Auditoría: IAM registra los detalles de la solicitud (quién, qué, cuándo, dónde, etc.) en CloudTrail con fines de supervisión y auditoría.
+Si las verificaciones de autenticación y autorización son exitosas, IAM permite que la solicitud avance. De lo contrario, IAM la deniega y devuelve un error.
+
+¿Cómo utilizar IAM?
+
+Para utilizar IAM, necesitas tener una cuenta de AWS. Puedes registrarte para obtener una cuenta gratuita aquí. Una vez que tengas una cuenta, puedes acceder a IAM desde la Consola de Administración de AWS, la Interfaz de Línea de Comando de AWS (CLI) o los Kits de Desarrollo de AWS (SDK).
+
+Lo primero que debes hacer es crear un usuario de IAM para ti mismo. Por defecto, al crear una cuenta de AWS, obtienes un usuario raíz que tiene acceso completo a todos los servicios y recursos de AWS. Sin embargo, no se recomienda usar el usuario raíz para tareas regulares, ya que representa un riesgo de seguridad. En su lugar, debes crear un usuario de IAM con privilegios de administrador y utilizarlo para gestionar tu cuenta.
+
+Para crear un usuario de IAM con privilegios de administrador:
+
+Ve a la consola de IAM y haz clic en "Usuarios" en el panel de navegación izquierdo.
+Haz clic en el botón "Agregar usuario" en la parte superior.
+Ingresa un nombre de usuario y selecciona "Acceso programático" y "Acceso a la consola de administración de AWS" como tipos de acceso.
+Haz clic en el botón "Siguiente: Permisos" en la parte inferior.
+En la página "Establecer permisos", haz clic en la pestaña "Adjuntar directamente políticas existentes" y selecciona la política "AdministratorAccess" de la lista.
+Haz clic en el botón "Siguiente: Etiquetas" en la parte inferior.
+En la página "Agregar etiquetas", puedes opcionalmente agregar algunas pares de clave-valor para categorizar tu usuario. Por ejemplo, puedes agregar una etiqueta con la clave "Nombre" y el valor "Tu Nombre".
+Haz clic en el botón "Siguiente: Revisar" en la parte inferior.
+En la página de revisión, verifica los detalles de tu usuario y haz clic en el botón "Crear usuario" en la parte inferior.
+En la página de éxito, verás la ID de clave de acceso de tu usuario y la clave de acceso secreta. También verás un enlace para descargar un archivo .csv con estas credenciales. Necesitarás estas credenciales para acceder a AWS a través de la CLI o los SDK. También verás la contraseña de tu usuario y un enlace para iniciar sesión en la consola. Asegúrate de guardar estas credenciales de manera segura, ya que no podrás recuperarlas más adelante.
+Ahora has creado un usuario de IAM con privilegios de administrador. Puedes utilizar este usuario para gestionar tu cuenta de AWS y tus recursos.
+
+¿Cómo asegurar tu entorno de IAM?
+
+IAM proporciona varias características y mejores prácticas para ayudarte a asegurar tu entorno de IAM. Algunas de ellas son:
+
+Habilitar MFA para tus usuarios: MFA añade una capa adicional de seguridad a las credenciales de tus usuarios al requerir que ingresen un código de un dispositivo o una aplicación, además de su contraseña o clave de acceso. Puedes habilitar MFA para tus usuarios desde la consola de IAM, la CLI o los SDK. También puedes hacer cumplir MFA para tus usuarios utilizando una condición de política.
+Utilizar roles para el acceso entre cuentas o servicios: Los roles te permiten delegar el acceso a tus recursos a otra cuenta de AWS o servicio sin compartir tus credenciales. Por ejemplo, puedes utilizar un rol para permitir que una instancia EC2 acceda a los cubos de S3 o permitir que una función Lambda invoque otra función Lambda. Puedes crear y gestionar roles desde la consola de IAM, la CLI o los SDK. También puedes utilizar el Servicio de Tokens de Seguridad de AWS (STS) para asumir un rol de manera programática y obtener credenciales temporales.
+Utilizar políticas para otorgar el menor privilegio necesario: Las políticas te permiten definir los permisos de tus usuarios, grupos, roles y recursos. Debes seguir el principio del menor privilegio y otorgar solo los permisos mínimos necesarios para una tarea. Puedes utilizar el simulador de políticas de IAM para probar y depurar tus políticas antes de aplicarlas. También puedes utilizar el asesor de acceso de IAM para revisar el historial de acceso de tus usuarios, grupos y roles y revocar cualquier permiso no utilizado.
+Utilizar etiquetas para organizar y controlar el acceso: Las etiquetas te permiten agregar metadatos a tus usuarios, grupos, roles y recursos. Puedes utilizar etiquetas para categorizar, filtrar y generar informes sobre tus entidades de IAM. También puedes utilizar etiquetas para controlar el acceso a tus recursos mediante una condición de política que coincida con la clave y el valor de la etiqueta.
+Supervisar y auditar la actividad de IAM: IAM se integra con CloudTrail para registrar y almacenar cada llamada de API realizada por o en nombre de tus entidades de IAM. Puedes utilizar CloudTrail para supervisar y auditar la actividad de IAM y detectar cualquier acción no autorizada o sospechosa. También puedes utilizar alarmas de CloudWatch y notificaciones de SNS para recibir alertas sobre eventos de IAM de interés.
+Conclusión
+
+IAM es un servicio poderoso y esencial que te ayuda a gestionar las identidades y los permisos de acceso de tus usuarios y recursos en AWS. Al utilizar IAM, puedes mejorar la seguridad y el gobierno de tu entorno de AWS. Espero que esta publicación del blog te haya proporcionado una comprensión básica de IAM y cómo utilizarlo de manera efectiva.
